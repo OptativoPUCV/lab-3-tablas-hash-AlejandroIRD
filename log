@@ -30,3 +30,18 @@ Fri, Apr 18, 2025 11:50:53 PM:
  tests:  1|5
 total_score: 10/70
 e908376
+Sat, Apr 19, 2025 12:01:22 AM: 
+ hashmap.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:45:20: error: passing argument 1 of 'strcmp' from incompatible pointer type [-Werror=incompatible-pointer-types]
+         if (strcmp(map->buckets[pos], key) == 0){
+                    ^~~
+In file included from test.c:3:0:
+c:\mingw\include\string.h:77:38: note: expected 'const char *' but argument is of type 'Pair * {aka struct Pair *}'
+ _CRTIMP __cdecl __MINGW_NOTHROW  int strcmp (const char *, const char *) __MINGW_ATTRIB_PURE;
+                                      ^~~~~~
+cc1.exe: all warnings being treated as errors
+b57aa32
