@@ -139,3 +139,14 @@ Sat, Apr 19, 2025 12:36:45 AM:
  tests:  14|2
 total_score: 50/70
 55a5d47
+Sat, Apr 19, 2025 12:37:18 AM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'nextMap':
+hashmap.c:125:79: error: comparison between pointer and integer [-Werror]
+     if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == NULL) return NULL;
+                                                                               ^~
+cc1.exe: all warnings being treated as errors
+6958c6b
