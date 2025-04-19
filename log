@@ -45,3 +45,19 @@ c:\mingw\include\string.h:77:38: note: expected 'const char *' but argument is o
                                       ^~~~~~
 cc1.exe: all warnings being treated as errors
 b57aa32
+Sat, Apr 19, 2025 12:07:32 AM: 
+ hashmap.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:46:24: error: passing argument 1 of 'strcasecmp' from incompatible pointer type [-Werror=incompatible-pointer-types]
+         if (strcasecmp(map->buckets[pos], key) == 0 && map->buckets[pos]->key != NULL){
+                        ^~~
+In file included from c:\mingw\include\string.h:62:0,
+                 from test.c:3:
+c:\mingw\include\strings.h:63:29: note: expected 'const char *' but argument is of type 'Pair * {aka struct Pair *}'
+ int __cdecl __MINGW_NOTHROW strcasecmp( const char *, const char * );
+                             ^~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+1a27302
