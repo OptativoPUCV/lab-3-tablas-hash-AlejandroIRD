@@ -1,0 +1,14 @@
+Fri, Apr 18, 2025 11:49:55 PM: 
+ hashmap.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'createMap':
+hashmap.c:58:42: error: 'pair' undeclared (first use in this function)
+     map->buckets = (Pair**)malloc(sizeof(pair*)* capacity);
+                                          ^~~~
+hashmap.c:58:42: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:58:47: error: expected expression before ')' token
+     map->buckets = (Pair**)malloc(sizeof(pair*)* capacity);
+                                               ^
+eeef3b7
