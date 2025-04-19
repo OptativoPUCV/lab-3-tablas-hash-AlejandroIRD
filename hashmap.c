@@ -124,6 +124,7 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
+    firstMap(map);
     if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == -1) return NULL;
     
     long posOri = map->current;
