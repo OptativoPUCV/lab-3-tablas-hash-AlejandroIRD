@@ -124,11 +124,12 @@ Pair * nextMap(HashMap * map) {
     if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == -1) return NULL;
     
     long posOri = map->current;
-    for (long i = (posOri + 1) % map->capacity; i != posOri; i = (i + 1) % map->capacity){
+    for (long i = 1; i < map->capacity; i++){
+        long newPos = (posOri + i) % map->capacity;
 
-        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL){
-            map->current = i;
-            return map->buckets[i];
+        if (map->buckets[newPos] != NULL && map->buckets[newPos]->key != NULL){
+            map->current = newPos;
+            return map->buckets[newPos];
         }
     }
     map->current = -1;
