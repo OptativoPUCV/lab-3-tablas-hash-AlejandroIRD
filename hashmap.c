@@ -129,7 +129,7 @@ Pair * nextMap(HashMap * map) {
         long newPos = (posOri + i) % map->capacity;
 
         if (map->buckets[newPos] != NULL && map->buckets[newPos]->key != NULL){
-            map->current = i;
+            map->current = newPos;
             return map->buckets[newPos];
         }
     }
