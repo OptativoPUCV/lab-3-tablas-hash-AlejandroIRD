@@ -121,27 +121,15 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-/*    if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == -1) return NULL;
-    
-    long posOri = map->current;
-    for (long i = 1; i < map->capacity; i++){
-        long newPos = (posOri + i) % map->capacity;
 
-        if (map->buckets[newPos] != NULL && map->buckets[newPos]->key != NULL){
-            map->current = newPos;
-            return map->buckets[newPos];
-        }
-    }
-    map->current = -1;
-    return NULL;*/
-    long index = map->current + 1;
+    long pos = map->current + 1;
 
-    while (index < map->capacity) {
-        if (map->buckets[index] != NULL && map->buckets[index]->key != NULL) {
-            map->current = index; // guardar el nuevo índice
-            return map->buckets[index];
+    while (pos < map->capacity) {
+        if (map->buckets[pos] != NULL && map->buckets[pos]->key != NULL) {
+            map->current = pos;
+            return map->buckets[pos];
         }
-        index++;
+        pos++;
     }
     return NULL;
 }
