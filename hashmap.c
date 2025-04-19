@@ -123,8 +123,8 @@ Pair * firstMap(HashMap * map) {
 
 Pair * nextMap(HashMap * map) {
     long posOri = map->current;
-    for (long i = 0; i < map->capacity; i++){
-        long newPos = (posOri + 1) % map->capacity;
+    for (long i = 1; i < map->capacity; i++){
+        long newPos = (posOri + i) % map->capacity;
 
         if (map->buckets[newPos] != NULL && map->buckets[newPos]->key != NULL){
             map->current = newPos;
