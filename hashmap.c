@@ -52,7 +52,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
     
     Pair* pairNew = createPair(key, value);
-    
+
     map->buckets[pos] = pairNew;
     map->size++;
     map->current = pos;
@@ -124,7 +124,7 @@ Pair * nextMap(HashMap * map) {
     if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == -1) return NULL;
     
     long posOri = map->current;
-    for (long i = 1; i < map->capacity; i++){
+    for (long i = posOri; i < map->capacity; i++){
         long newPos = (posOri + i) % map->capacity;
 
         if (map->buckets[newPos] != NULL && map->buckets[newPos]->key != NULL){
