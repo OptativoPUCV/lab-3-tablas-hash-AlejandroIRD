@@ -51,11 +51,8 @@ void insertMap(HashMap * map, char * key, void * value) {
         if (pos == posOrig) return;
     }
     
-
-    Pair * pairNew = (Pair*)malloc(sizeof(Pair));
-    pairNew->key = key;
-    pairNew->value = value;
-
+    Pair* pairNew = createPair(key, value);
+    
     map->buckets[pos] = pairNew;
     map->size++;
     map->current = pos;
@@ -126,7 +123,7 @@ Pair * firstMap(HashMap * map) {
 Pair * nextMap(HashMap * map) {
     if (map == NULL || map->buckets == NULL || map->size == 0 || map->current == -1) return NULL;
     
-/*    long posOri = map->current;
+    long posOri = map->current;
     for (long i = 1; i < map->capacity; i++){
         long newPos = (posOri + i) % map->capacity;
 
@@ -135,16 +132,6 @@ Pair * nextMap(HashMap * map) {
             return map->buckets[newPos];
         }
     }
-    map->current = -1;
-    return NULL;*/
-    long start = map->current;
-    for (long i = (start + 1) % map->capacity; i != start; i = (i + 1) % map->capacity) {
-        if (map->buckets[i] != NULL && map->buckets[i]->key != NULL) {
-            map->current = i;
-            return map->buckets[i];
-        }
-    }
-
     map->current = -1;
     return NULL;
 }
